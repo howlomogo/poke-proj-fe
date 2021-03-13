@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+
+// Components
+import Home from './views/Home'
+import Header from './components/Header'
+import List from './views/List'
+import Pokemon from './views/Pokemon'
+import NotFound from './views/NotFound'
+import Footer from './components/Footer'
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <Router>
+          <Header />
+
+          <Switch>
+            <Route exact path="/list">
+              <List />
+            </Route>
+
+            <Route exact path="/pokemon/:name">
+              <Pokemon />
+            </Route>
+
+            <Route exact path="/">
+              <Home />
+            </Route>
+
+            {/* Catch all 404 route */}
+            <Route>
+              <NotFound />
+            </Route>
+          </Switch>
+
+          <Footer />
+
+        </Router>
+      </div>
+    )
+  }
 }
 
 export default App;
