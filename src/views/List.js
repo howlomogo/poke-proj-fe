@@ -51,7 +51,8 @@ const List = () => {
       pageNumber: page
     }
     
-    await axios.get('http://localhost:3000/results', { params })
+    // http://localhost:3000/results
+    await axios.get('https://poke-proj-be.herokuapp.com/results', { params })
       .then(res => {
         setResultsData({
           results: res.data.results,

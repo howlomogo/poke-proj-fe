@@ -26,7 +26,8 @@ function Pokemon() {
   const getPokemon = async () => {
     setIsLoading(true)
     
-    await axios.get(`http://localhost:3000/pokemon/${name}`)
+    // http://localhost:3000/pokemon/${name} - local
+    await axios.get(`https://poke-proj-be.herokuapp.com/pokemon/${name}`)
       .then(res => {
         setPokemonData({
           name: res.data.name,

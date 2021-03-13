@@ -7,8 +7,10 @@ function ListFilters(props) {
   })
 
   const handleSetFilterOptions = async () => {
+    
+    // http://localhost:3000/options-types - local
     // Get Filter Options
-    await fetch(`http://localhost:3000/options-types`)
+    await fetch(`https://poke-proj-be.herokuapp.com/options-types`)
       .then(res => res.json())
       .then(data => {
         // Set default selected to false
